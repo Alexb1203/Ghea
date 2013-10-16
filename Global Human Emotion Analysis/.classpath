@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry exported="true" kind="con" path="org.dyno.visual.swing.VS_LIBRARY/layoutext"/>
+	<classpathentry exported="true" kind="lib" path="/Users/bedrossiana/Downloads/Global Human Emotion Analysis/jaws-bin.jar"/>
+	<classpathentry exported="true" kind="lib" path="/Users/bedrossiana/Downloads/Global Human Emotion Analysis/twitter4j-core-2.2.5.jar"/>
+	<classpathentry exported="true" kind="lib" path="/Users/bedrossiana/Downloads/java-json.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
