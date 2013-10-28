@@ -25,7 +25,7 @@ public class Word {
 	public boolean negateEmotion = false;
 	public boolean irrealisConditional = false;
 	public Word(){
-		 
+		  
 	}
 	public Word(String word){
 		wrd = word;
