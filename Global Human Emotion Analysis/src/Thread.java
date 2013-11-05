@@ -19,7 +19,7 @@ public class Thread {
 		
 		for(int x = 0;x<possibleSubjects.size();x++)
 			//LIST OF ALL THINGS THE SUBJECT CANT BE RIGHT HERE
-			if(possibleSubjects.get(x).prepPhrase||(possibleSubjects.get(x).wrdTypes.get(0) == WordTypes.wordTypes.Verb && possibleSubjects.get(x).wrdTypes.size()==1)||possibleSubjects.get(x).wrdTypes.contains(WordTypes.wordTypes.Article)||possibleSubjects.get(x).toString().equals("if")||possibleSubjects.get(x).wrdTypes.contains(WordTypes.wordTypes.Comma)||possibleSubjects.get(x).wrdTypes.contains(WordTypes.wordTypes.Period)){
+			if(possibleSubjects.get(x).prepPhrase||(possibleSubjects.get(x).wrdTypes.get(0) == WordTypes.wordTypes.Adjective && possibleSubjects.get(x).wrdTypes.size()==1)||(possibleSubjects.get(x).wrdTypes.get(0) == WordTypes.wordTypes.Verb && possibleSubjects.get(x).wrdTypes.size()==1)||possibleSubjects.get(x).wrdTypes.contains(WordTypes.wordTypes.Article)||possibleSubjects.get(x).toString().equals("if")||possibleSubjects.get(x).wrdTypes.contains(WordTypes.wordTypes.Conjunction)||possibleSubjects.get(x).wrdTypes.contains(WordTypes.wordTypes.Comma)||possibleSubjects.get(x).wrdTypes.contains(WordTypes.wordTypes.Period)){
 				possibleSubjects.remove(x);
 				x--;
 				word_eleminated++;
