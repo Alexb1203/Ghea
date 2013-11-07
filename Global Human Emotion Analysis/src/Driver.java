@@ -46,60 +46,51 @@ public class Driver {
 			    GUI.negative_Normal = (Integer) NegativeHashtable.get("Normal");
 			    GUI.negative_Negated = (Integer) NegativeHashtable.get("Negated");
 			    GUI.negative_DoubleNegated = (Integer) NegativeHashtable.get("Double-Negated");
-		      
+			    
 			    //words like VERY and ALOT should magnify the value of polarity around 1.5 times.
 			    
+			    //## Example Sentences ##\\
+			    /*/
+			    * i really didn't like the touch screen
+			    * 
+			    *
+			    */
+			    //## End Example of the Sentences ##\\
 			    
-			    
-			    
-			         //## Example Sentences ##\\
-			    /*
-			     * i really didn't like the touch screen
-			     * 
-			     *
-			     */
-			     //## End Example of the Sentences ##\\
-			    
-			    
-			    
-		    
 			    DecimalFormat df = new DecimalFormat("#.0");
-
+			    
 			    GUI.totalPolarity =  Float.parseFloat(df.format((float)((GUI.positive_Normal) + ((float)GUI.positive_DoubleNegated / 2) + ((float)GUI.negative_Negated / 2) - (GUI.negative_Normal) - ((float)GUI.negative_DoubleNegated / 2) - ((float)GUI.positive_Negated / 1.5))));
-
+			    
 		        GUI.wieghtedPolarity = Float.parseFloat(df.format(((GUI.totalPolarity ) / totalWordCount)));
 		        
 		        //tst=tst;
 		        //TextBox12.Text = "NaN - Error"
 		        //TextBox13.Text = "NaN % Error"
-		    
 	}
 	
     public static String[] StringtoStringArray(String textBoxString){
     	int counter=1;
 	    for (char x : textBoxString.toCharArray()){
-	    	if (x == '.'){
+	    	if (x=='.'){
 	    		counter++;
 	    		break;
 	    	}
-	        if (x == ' '||x==',')
+	        if (x==' '||x==',')
 	        	counter++;
 	    }
     	String[] Words = new String[counter];
 	    for(int i=0;i<counter;i++){
 	    	Words[i]="";
 	    }
-	    
 	    counter=0;
 	    for (char x : textBoxString.toCharArray()){
-	    	if (x == '.'){
+	    	if (x=='.'){
 	    		counter++;
 	    		Words[counter]+=x;
 	    		Words[counter] = Words[counter].toLowerCase();
 	    		break;
 	    	}
-	    	
-	    	if (x == ' '){
+	    	if (x==' '){
 	        	counter++;
 	    	}else if (x==','){
 	    		counter++;
@@ -139,7 +130,7 @@ public class Driver {
     	int poscount = 0;
 	    String previousWord = "";
 	    String previous2Word = "";
-    	int foundnegation = 0;
+    	boolean foundnegation = false;
 	    int doubleNegs = 0;
 	    ArrayList<String> phrase = new ArrayList<String>();
 	    for (int x = 0; x<sentence.size(); x++){
@@ -150,8 +141,18 @@ public class Driver {
             			break;
             			//NO MATCH
             		}else if(i==(phrase.size()-1)){
+            			//
+            			for(int j=0;j<NegationWords.length;j++){
+            				if(sentence.get(x-(phrase.size()-1)-1).toString().toLowerCase().equals((NegationWords[j].toLowerCase()))){
+                				negposcount++;
+                				foundnegation=true;
+                			}
+            			}
+            			//
+            			if(!foundnegation){
             			poscount++;
             			poscount+=(i/2);
+            			}
             			//PHRASE MATCH
             		//}else //if(phrase.get(i).equals(sentence.get(x+i).toString())){
             		//{
