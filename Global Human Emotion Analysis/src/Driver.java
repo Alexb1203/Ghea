@@ -1,15 +1,11 @@
 import java.text.DecimalFormat;
-import java.text.StringCharacterIterator;
 import java.util.ArrayList;
 import java.util.Hashtable;
-
-import javax.swing.text.StringContent;
-
-import com.sun.xml.internal.ws.util.StringUtils;
 
 public class Driver {
 	
 	final static String NegationWords[] = {"not", "no", "don't", "dont", "never", "none", "nobody", "doesnt", "doesn't", "non", "wasn't", "wasnt", "no one", "no-one"};//un-happy the un part dont forget to add
+	final static String BoosterWords[] = {"very", "really", "extremely", "super", "alot"};
 	
 	static String[] posFile;
 	 static String[] nutFile;
@@ -128,9 +124,7 @@ public class Driver {
 	private static Hashtable CompareTextToFile(ArrayList<Word> sentence, String[] TempDictionary){
     	int negposcount = 0;
     	int poscount = 0;
-	    String previousWord = "";
-	    String previous2Word = "";
-    	boolean foundnegation = false;
+	    boolean foundnegation = false;
 	    int doubleNegs = 0;
 	    ArrayList<String> phrase = new ArrayList<String>();
 	    for (int x = 0; x<sentence.size(); x++){
@@ -143,12 +137,21 @@ public class Driver {
             		}else if(i==(phrase.size()-1)){
             			//
             			for(int j=0;j<NegationWords.length;j++){
-            				if(sentence.get(x-(phrase.size()-1)-1).toString().toLowerCase().equals((NegationWords[j].toLowerCase()))){
-                				negposcount++;
-                				foundnegation=true;
-                			}
+            				if(x>1)
+	            				if(sentence.get(x-(phrase.size()-1)-1).toString().toLowerCase().equals((NegationWords[j].toLowerCase()))){
+	                				negposcount++;
+	                				foundnegation=true;
+	                			}
             			}
-            			//
+            			//BoosterWords
+            			for(int j=0;j<BoosterWords.length;j++){
+            				if(x>1)
+	            				if(sentence.get(x-(phrase.size()-1)-1).toString().toLowerCase().equals((BoosterWords[j].toLowerCase()))){
+	                				//ADD BOOSTER CODE
+	            					//negposcount++;
+	                				//foundnegation=true;
+	                			}
+            			}
             			if(!foundnegation){
             			poscount++;
             			poscount+=(i/2);

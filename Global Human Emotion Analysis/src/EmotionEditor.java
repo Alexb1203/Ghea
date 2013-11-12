@@ -33,18 +33,6 @@ public class EmotionEditor extends JFrame {
 		initComponents();
 	}
 	ButtonGroup bg1;
-	private void groupButton( ) {
-
-		bg1 = new ButtonGroup( );
-
-		bg1.add(jRadioButton2);
-		bg1.add(jRadioButton1);
-		bg1.add(jRadioButton0);
-		
-		jRadioButton1.setSelected(true);
-		
-		}
-
 	private void initComponents() {
 		setLayout(new GroupLayout());
 		add(getJPanel0(), new Constraints(new Bilateral(215, 12, 95), new Leading(0, 74, 10, 10)));

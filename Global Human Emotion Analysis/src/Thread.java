@@ -28,7 +28,8 @@ public class Thread {
 				likelySubjects.add(possibleSubjects.get(x));
 				word_eleminated2++;
 			}
-		FinalSubjectGuess = likelySubjects.get(0);
+		if(likelySubjects.size()>0)
+			FinalSubjectGuess = likelySubjects.get(0);
 		System.out.println("done");
 	}
 	@Override
