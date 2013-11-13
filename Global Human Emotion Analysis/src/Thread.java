@@ -7,6 +7,7 @@ public class Thread {
 	ArrayList<Word> possibleSubjects = new ArrayList<Word>();
 	ArrayList<Word> likelySubjects = new ArrayList<Word>();
 	Word FinalSubjectGuess;
+	boolean FinalSubjectGuessed = false;
 	int total_words = 0;
 	int word_eleminated = 0;
 	int word_eleminated2 = 0;
@@ -28,9 +29,13 @@ public class Thread {
 				likelySubjects.add(possibleSubjects.get(x));
 				word_eleminated2++;
 			}
-		if(likelySubjects.size()>0)
-			FinalSubjectGuess = likelySubjects.get(0);
-		System.out.println("done");
+		for(int k=0;k<likelySubjects.size();k++){
+			if(likelySubjects.get(k).wrdTypes.contains(WordTypes.wordTypes.Noun)&&(!FinalSubjectGuessed)){
+				FinalSubjectGuess = likelySubjects.get(k);
+				FinalSubjectGuessed=true;
+			}
+		}
+		//System.out.println("done");
 	}
 	@Override
 	public String toString(){

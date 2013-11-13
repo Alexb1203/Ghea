@@ -137,7 +137,7 @@ public class Driver {
             		}else if(i==(phrase.size()-1)){
             			//
             			for(int j=0;j<NegationWords.length;j++){
-            				if(x>1)
+            				if(x>=1)
 	            				if(sentence.get(x-(phrase.size()-1)-1).toString().toLowerCase().equals((NegationWords[j].toLowerCase()))){
 	                				negposcount++;
 	                				foundnegation=true;
@@ -145,12 +145,15 @@ public class Driver {
             			}
             			//BoosterWords
             			for(int j=0;j<BoosterWords.length;j++){
-            				if(x>1)
+            				if(x>=1){
 	            				if(sentence.get(x-(phrase.size()-1)-1).toString().toLowerCase().equals((BoosterWords[j].toLowerCase()))){
 	                				//ADD BOOSTER CODE
+	            					//System.out.println("found booster word");
+	            					poscount++;
 	            					//negposcount++;
 	                				//foundnegation=true;
 	                			}
+            				}
             			}
             			if(!foundnegation){
             			poscount++;
