@@ -1,4 +1,4 @@
-Ghea
+G.H.E.A. - Global Human Emotion Analysis
 ====
 
 Global Human Emotion Analysis Project
