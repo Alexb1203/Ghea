@@ -7,6 +7,7 @@ import java.io.RandomAccessFile;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
@@ -185,6 +186,7 @@ public class EmotionEditor extends JFrame {
 	    fs.seek(fs.length());
 	    fs.writeBytes(word+"\n");
 	    fs.close();
+	    JOptionPane.showMessageDialog(this, "Added Word");
 	}
 	
 	/*public int indexOfAlphabet(char letter){
