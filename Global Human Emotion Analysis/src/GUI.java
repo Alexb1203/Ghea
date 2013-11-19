@@ -48,7 +48,6 @@ import org.json.JSONObject;
 
 //VS4E -- DO NOT REMOVE THIS LINE!
 public class GUI extends JFrame implements KeyListener {
-
 	String mykey = "jn5yztduqrvuj6uhenyh5m35";
 	private static final long serialVersionUID = 1L;
 	private JTextField jTextField0;
