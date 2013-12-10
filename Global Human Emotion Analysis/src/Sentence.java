@@ -40,7 +40,7 @@ public class Sentence extends Word{
     	    		//sentence.get(i).prepPhrase=true;
     	    		//if the word after a noun isn't a noun.
 	    			if(subHold.get(w)==WordTypes.wordTypes.Noun){/*||subHold[w].equals("(Pronoun)")*///||subHold.get(w)==WordTypes.wordTypes.Gerund){
-	    				if(sentence.size()>i){
+	    				if(sentence.size()>(i+1)){
 	    					if(!sentence.get(i+1).wrdTypes.contains(WordTypes.wordTypes.Noun)){
 	    						sentence.get(i).prepPhrase=true;
 	    	    				foundPrep=false; //now that we have a full set (start & end) we reset the boolean so we can continue searching for more prepositional phrases.

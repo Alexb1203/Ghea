@@ -72,7 +72,7 @@ public class GUI extends JFrame implements KeyListener {
 	public static float wieghtedPolarity = 0;
 	private JButton jButton0;
 	DefaultListModel listModel = new DefaultListModel();
-	DefaultListModel listModel1 = new DefaultListModel();
+	static DefaultListModel listModel1 = new DefaultListModel();
 	ArrayList<Float> listModel1_polarity = new ArrayList<Float>();
 
 	public GUI() {
@@ -622,12 +622,12 @@ public class GUI extends JFrame implements KeyListener {
 		try {
 			JFileChooser chooser = new JFileChooser();
 			// Note: source for ExampleFileFilter can be found in
-			// FileChooserDemo,
+			// FileChooserDemo, 
 			// under the demo/jfc directory in the Java 2 SDK, Standard Edition.
 			int returnVal = chooser.showOpenDialog(getParent());
 			if (returnVal == JFileChooser.APPROVE_OPTION) {
-				Driver.maindisplay(LoadFiles.LoadFile(chooser.getSelectedFile()
-						.getPath()));
+				LoadFiles.LoadTextFile(chooser.getSelectedFile().getPath());
+				//Driver.maindisplay();
 				update();
 			}
 		} catch (IOException e) {
@@ -652,9 +652,9 @@ public class GUI extends JFrame implements KeyListener {
 	private static String readAll(Reader rd) throws IOException {
 	    StringBuilder sb = new StringBuilder();
 	    int cp;
-	    while ((cp = rd.read()) != -1) {
-	      sb.append((char) cp);
-	    }
+		    while ((cp = rd.read()) != -1) {
+		      sb.append((char) cp);
+		    }
 	    return sb.toString();
 	  }
 
